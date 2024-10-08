@@ -4,7 +4,14 @@ import java.util.Map;
 
 public interface ISymptomWriter {
 
-	public void public void writeSymptoms(Map<String, Integer> symptoms);
+    private void writeSymptoms(Map<String, Integer> symptoms) {
 
+    }
+
+    boolean containsKey(String readLine);
+
+    Object get(String s);
+
+    void put(String readLine, Object o);
 }
 
