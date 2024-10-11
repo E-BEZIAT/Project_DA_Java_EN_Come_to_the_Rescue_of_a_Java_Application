@@ -13,7 +13,7 @@ public abstract class WriteSymptomDataToFile implements ISymptomWriter {
     private AutoCloseable writer;
 
     {
-        logger = LogManager.getLogger(String.valueOf(WriteSymptomDataToFile.class));
+       // logger = LogManager.getLogger(String.valueOf(WriteSymptomDataToFile.class));
     }
 
     public void writeSymptoms(Map<String, Integer> symptoms) {
@@ -29,13 +29,18 @@ public abstract class WriteSymptomDataToFile implements ISymptomWriter {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("result.out"));
                 writer.write(RESULT.toString());
             } catch (IOException e) {
-                logger.log("Impossible d'ecrire dans le fichier");
+         //       logger.log("Impossible d'ecrire dans le fichier"); // If the fonction can't write in the file, a message will appear
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e); // captur all exceptions and launch again with RuntimeException
             }
 
     }
 
 
-    }
+    public abstract boolean containsKey(String readLine);
+
+    public abstract Object get(String s);
+
+    public abstract void put(String readLine, Object o);
+}
 
