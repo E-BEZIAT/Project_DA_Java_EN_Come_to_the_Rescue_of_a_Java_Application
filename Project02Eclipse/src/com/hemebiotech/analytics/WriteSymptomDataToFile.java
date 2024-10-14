@@ -26,8 +26,9 @@ public abstract class WriteSymptomDataToFile implements ISymptomWriter {
         ArrayList<String> result = new ArrayList<String>();
 
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("result.out"));
+                BufferedWriter writer = new BufferedWriter(new FileWriter("Project02Eclipse/result.out"));
                 writer.write(RESULT.toString());
+                writer.close();
             } catch (IOException e) {
          //       logger.log("Impossible d'ecrire dans le fichier"); // If the fonction can't write in the file, a message will appear
             } catch (Exception e) {

@@ -5,15 +5,23 @@ import java.util.*;
 
 
 public class AnalyticsCounter {
-	// private static int headacheCount = 0;  // ?
-	// private static int rashCount = 0;	// ?
-	// private static int pupilCount = 0;  // ?
-	// private static boolean symptoms;
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
+
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
+	}
 
 	public static void main(String args[]) throws Exception {
 
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-		String readLine = reader.readLine(); }
+	}
+		public List<String> getSymptoms() {
+		System.out.println("Répertoire de travail : " + System.getProperty("user.dir"));
+		ISymptomReader myReader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");  //lit les symptoms depuis readsymptomdatafile implémenté avec ISymptomsReader
+		List<String> symptoms = myReader.getSymptoms();
+            return symptoms;
+        }
 
 		public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		System.out.println("symptoms size : " + symptoms.size());
@@ -39,11 +47,30 @@ public class AnalyticsCounter {
 
 			// for (Map.Entry<String, Integer> entry : sortedSymptoms.entrySet()) { // Trie le Map grâce au TreeMap (ordre alphabétique)
 				return sortedSymptoms;
-			// }
-			
+
+
+            // }
+
 		}
 
-		public void writeSymptoms(Map<String, Integer> symptoms) {
+		public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
+
+			ISymptomWriter myWriter = new WriteSymptomDataToFile() {
+				@Override
+				public boolean containsKey(String readLine) {
+					return false;
+				}
+
+				@Override
+				public Object get(String s) {
+					return null;
+				}
+
+				@Override
+				public void put(String readLine, Object o) {
+
+				}
+			};
 
 		}
 
