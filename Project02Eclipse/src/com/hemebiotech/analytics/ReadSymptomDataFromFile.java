@@ -14,8 +14,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	private final File filepath;
 
 	/**
-	 *
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @param filepath is a path to the file symptoms.txt, who's contain the symptoms list.
+	 * The class ReadSymptomDataFromFile read the file symptoms.txt where are the symptoms list.
+	 * The function read line by line as long as the line isn't null and if the length of the file isn't 0.
+	 * There is a try/catch in case of problem, it would tell us if the problem is from the reading.
 	 */
 
 	public ReadSymptomDataFromFile (String filepath) {

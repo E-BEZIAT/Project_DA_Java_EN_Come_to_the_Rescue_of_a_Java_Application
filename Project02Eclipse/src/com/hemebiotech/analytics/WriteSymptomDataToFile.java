@@ -6,17 +6,20 @@ import java.io.IOException;
 import java.util.Map;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
-
+    /**
+     * the class WriteSymptom is the writer. It creates a file named result.txt and write in the file the keys with their associate value.
+     * write.close() is uses to stop writing, otherwise the file would not have anything write inside.
+     */
     public void WriteSymptom(Map<String, Integer> symptoms) {
-        StringBuilder RESULT = new StringBuilder(); //StringBuilder build the file
+        StringBuilder RESULT = new StringBuilder();
         RESULT.append("This is a Symptom File\n\n");
-        String filename = "result";
-        try {
+        /**try {
             File newFile = new File("result.txt");
             boolean success = newFile.createNewFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+         */
         try {
                 FileWriter writer = new FileWriter("result.txt");
             for(Map.Entry<String, Integer> symptome : symptoms.entrySet()) {
