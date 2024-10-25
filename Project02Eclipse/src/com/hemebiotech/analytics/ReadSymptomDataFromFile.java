@@ -21,13 +21,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 */
 
 	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = Paths.get("Project02Eclipse/symptoms.txt").toFile(); //change string into file
+		this.filepath = Paths.get(filepath).toFile(); //change string into file
 	}
 
 	@Override
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
-		int length = (int) filepath.length();   //
+		int length = (int) filepath.length();
 
 		if (length > 0) {
 			try {
